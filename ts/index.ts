@@ -70,7 +70,7 @@ export class WebRequest {
           'Content-Type': 'application/json'
         }
       });
-      if (response.status >= 200 && response.status < 200) {
+      if (response.status >= 200 && response.status < 300) {
         return JSON.parse(await response.text());
       } else if (response.status === 429) {
         await doHistoryCheck('429');
