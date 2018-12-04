@@ -18,6 +18,7 @@
     "@pushrocks/smartexpress": "^2.0.4",
     "@pushrocks/tapbundle": "^3.0.7",
     "@types/node": "^10.11.7",
+    "node-fetch": "^2.3.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0"
   },

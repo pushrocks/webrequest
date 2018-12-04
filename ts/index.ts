@@ -1,7 +1,5 @@
 import * as plugins from './webrequest.plugins';
 
-type TRequestHistoryEntry = 'timedout' | '429' | '5xx';
-
 /**
  * web request
  */
@@ -40,21 +38,24 @@ export class WebRequest {
       allUrls = [urlArg];
     }
 
-    const requestHistory: TRequestHistoryEntry[] = []; // keep track of the request history
+    const requestHistory: string[] = []; // keep track of the request history
 
     const doHistoryCheck = async ( // check history for a 
-      historyEntryTypeArg: TRequestHistoryEntry
+      historyEntryTypeArg: string
     ) => {
       requestHistory.push(historyEntryTypeArg);
-      await plugins.smartdelay.delayFor(
-        Math.floor(Math.random() * (2000 - 1000 +1)) + 1000
-      ); // wait between 1 and 10 seconds
+      if (historyEntryTypeArg === '429') {
+        console.log('got 429, so waiting a little bit.')
+        await plugins.smartdelay.delayFor(
+          Math.floor(Math.random() * (2000 - 1000 +1)) + 1000
+        ); // wait between 1 and 10 seconds
+      }
 
       let numOfHistoryType = 0;
       for (const entry of requestHistory) {
         if (entry === historyEntryTypeArg) numOfHistoryType++;
       }
-      if (numOfHistoryType > 2 * allUrls.length * usedUrlIndex) {
+      if (numOfHistoryType > (2 * allUrls.length * usedUrlIndex)) {
         usedUrlIndex++;
       }
     };
@@ -64,23 +65,25 @@ export class WebRequest {
       if (!urlToUse) {
         throw new Error('request failed permanently');
       }
+      
       const response = await fetch(urlToUse, {
         method: optionsArg.method,
         headers: {
           'Content-Type': 'application/json'
         }
       });
+      console.log(`${urlToUse} answers with status: ${response.status}`);
+
       if (response.status >= 200 && response.status < 300) {
-        return JSON.parse(await response.text());
-      } else if (response.status === 429) {
-        await doHistoryCheck('429');
-        return await doRequest(allUrls[usedUrlIndex]);
-      } else if (response.status >= 500 && response.status < 600) {
-        await doHistoryCheck('5xx');
+        return response;
+      } else {
+        await doHistoryCheck(response.status.toString());
         return await doRequest(allUrls[usedUrlIndex]);
       }
     };
 
-    const finalResponse = await doRequest(urlArg[usedUrlIndex]);
+    const finalResponse: Response = await doRequest(urlArg[usedUrlIndex]);
+    console.log(finalResponse)
+    return JSON.parse(await finalResponse.text());
   }
 }
