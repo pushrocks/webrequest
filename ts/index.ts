@@ -26,6 +26,7 @@ export class WebRequest {
     urlArg: string | string[],
     optionsArg: {
       method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+      body?: any;
     }
   ) {
     let allUrls: string[];
@@ -70,7 +71,8 @@ export class WebRequest {
         method: optionsArg.method,
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: optionsArg.body
       });
       console.log(`${urlToUse} answers with status: ${response.status}`);
 
