@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "(tstest test/)",
-    "build": "(tsbuild)",
+    "build": "(tsbuild --web)",
     "format": "(gitzone format)"
   },
   "devDependencies": {
