@@ -41,7 +41,7 @@ tap.test('setup test server', async () => {
     });
   }));
 
-  await testServer.start()
+  await testServer.start();
 })
 
 tap.test('first test', async (tools) => {

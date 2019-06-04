@@ -7,7 +7,13 @@ export class WebRequest {
   /**
    * gets json
    */
-  async getJson(url: string | string[]) {}
+  public async getJson(urlArg: string | string[], requestBody?) {
+    const response = await this.request(urlArg, {
+      body: requestBody,
+      method: 'GET'
+    });
+
+  }
 
   /**
    * postJson
@@ -80,12 +86,13 @@ export class WebRequest {
         return response;
       } else {
         await doHistoryCheck(response.status.toString());
+        // tslint:disable-next-line: no-return-await
         return await doRequest(allUrls[usedUrlIndex]);
       }
     };
 
     const finalResponse: Response = await doRequest(urlArg[usedUrlIndex]);
-    console.log(finalResponse)
+    console.log(finalResponse);
     return JSON.parse(await finalResponse.text());
   }
 }
