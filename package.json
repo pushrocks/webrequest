@@ -24,5 +24,15 @@
   },
   "dependencies": {
     "@pushrocks/smartdelay": "^2.0.2"
-  }
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

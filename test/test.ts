@@ -5,12 +5,11 @@ import * as fetch from 'node-fetch';
 declare global {
   namespace NodeJS {
     interface Global {
-        fetch: any;
+      fetch: any;
     }
   }
 }
 global.fetch = fetch;
-
 
 // test dependencies
 import * as smartexpress from '@pushrocks/smartexpress';
@@ -24,43 +23,52 @@ tap.test('setup test server', async () => {
     port: 2345
   });
 
-  testServer.addRoute('/apiroute1', new smartexpress.Handler("GET", (req, res) => {
-    res.status(429);
-    res.end();
-  }));
+  testServer.addRoute(
+    '/apiroute1',
+    new smartexpress.Handler('GET', (req, res) => {
+      res.status(429);
+      res.end();
+    })
+  );
 
-  testServer.addRoute('/apiroute2', new smartexpress.Handler("GET", (req, res) => {
-    res.status(500);
-    res.end();
-  }));
+  testServer.addRoute(
+    '/apiroute2',
+    new smartexpress.Handler('GET', (req, res) => {
+      res.status(500);
+      res.end();
+    })
+  );
 
-  testServer.addRoute('/apiroute3', new smartexpress.Handler("GET", (req, res) => {
-    res.status(200);
-    res.send({
-      hithere: 'hi'
-    });
-  }));
+  testServer.addRoute(
+    '/apiroute3',
+    new smartexpress.Handler('GET', (req, res) => {
+      res.status(200);
+      res.send({
+        hithere: 'hi'
+      });
+    })
+  );
 
   await testServer.start();
-})
+});
 
-tap.test('first test', async (tools) => {
-  const response = await (new webrequest.WebRequest()).request([
+tap.test('first test', async tools => {
+  const response = await new webrequest.WebRequest().getJson([
     'http://localhost:2345/apiroute1',
     'http://localhost:2345/apiroute2',
     'http://localhost:2345/apiroute4',
     'http://localhost:2345/apiroute3'
-  ], {
-    method: 'GET'
-  })
+  ]);
 
   console.log(response);
 
-  expect(response).property('hithere').to.equal('hi');
-})
+  expect(response)
+    .property('hithere')
+    .to.equal('hi');
+});
 
 tap.test('tear down server', async () => {
   testServer.stop();
-})
+});
 
-tap.start()
+tap.start();
