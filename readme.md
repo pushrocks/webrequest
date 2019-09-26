@@ -21,6 +21,6 @@ securely request from browsers
 For further information read the linked docs at the top of this readme.
 
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
-| By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
+| By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy)
 
-[![repo-footer](https://pushrocks.gitlab.io/assets/repo-footer.svg)](https://maintainedby.lossless.com)
+[![repo-footer](https://lossless.gitlab.io/publicrelations/repofooter.svg)](https://maintainedby.lossless.com)

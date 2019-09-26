@@ -46,9 +46,9 @@ export class WebRequest {
   }
 
   /**
-   *
+   * a fault tolerant request
    */
-  async request(
+  public async request(
     urlArg: string | string[],
     optionsArg: {
       method: 'GET' | 'POST' | 'PUT' | 'DELETE';
