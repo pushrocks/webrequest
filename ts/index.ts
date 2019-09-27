@@ -4,9 +4,8 @@ import * as plugins from './webrequest.plugins';
  * web request
  */
 export class WebRequest {
-  public async getJson(urlArg: string | string[], requestBody?: any) {
+  public async getJson(urlArg: string | string[]) {
     const response: Response = await this.request(urlArg, {
-      body: requestBody,
       method: 'GET'
     });
     return response.json();
@@ -18,7 +17,7 @@ export class WebRequest {
   public async postJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
       body: requestBody,
-      method: 'GET'
+      method: 'POST'
     });
     return response.json();
   }
@@ -29,7 +28,7 @@ export class WebRequest {
   public async putJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
       body: requestBody,
-      method: 'GET'
+      method: 'PUT'
     });
     return response.json();
   }
@@ -37,9 +36,8 @@ export class WebRequest {
   /**
    * put js
    */
-  public async deleteJson(urlArg: string, requestBody?: any) {
+  public async deleteJson(urlArg: string) {
     const response: Response = await this.request(urlArg, {
-      body: requestBody,
       method: 'GET'
     });
     return response.json();
