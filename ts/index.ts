@@ -16,7 +16,7 @@ export class WebRequest {
    */
   public async postJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
-      body: requestBody,
+      body: JSON.stringify(requestBody),
       method: 'POST'
     });
     return response.json();
@@ -27,7 +27,7 @@ export class WebRequest {
    */
   public async putJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
-      body: requestBody,
+      body: JSON.stringify(requestBody),
       method: 'PUT'
     });
     return response.json();
@@ -89,7 +89,7 @@ export class WebRequest {
       if (!urlToUse) {
         throw new Error('request failed permanently');
       }
-
+      console.log(`Getting ${urlToUse} with method ${optionsArg.method}`);
       const response = await fetch(urlToUse, {
         method: optionsArg.method,
         headers: {
