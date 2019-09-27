@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/webrequest",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "private": false,
   "description": "securely request from browsers",
   "main": "dist/index.js",
