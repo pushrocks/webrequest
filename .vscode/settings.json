@@ -1,0 +1,20 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/npmextra.json"],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "npmci": {
+            "type": "object",
+            "description": "settings for npmci"
+          },
+          "gitzone": {
+            "type": "object",
+            "description": "settings for gitzone"
+          }
+        }
+      }
+    }
+  ]
+}

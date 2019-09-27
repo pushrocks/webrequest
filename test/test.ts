@@ -60,9 +60,15 @@ tap.test('first test', async tools => {
     'http://localhost:2345/apiroute3'
   ]);
 
+  const response2 = await new webrequest.WebRequest().getJson('http://localhost:2345/apiroute3');
+
   console.log(response);
+  console.log(response2)
 
   expect(response)
+    .property('hithere')
+    .to.equal('hi');
+  expect(response2)
     .property('hithere')
     .to.equal('hi');
 });
