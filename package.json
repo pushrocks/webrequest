@@ -9,11 +9,12 @@
   "license": "MIT",
   "scripts": {
     "test": "(tstest test/ --web)",
-    "build": "(tsbuild --web)",
+    "build": "(tsbuild --web && tsbundle npm)",
     "format": "(gitzone format)"
   },
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.24",
+    "@gitzone/tsbundle": "^1.0.69",
     "@gitzone/tstest": "^1.0.33",
     "@pushrocks/smartexpress": "^3.0.72",
     "@pushrocks/tapbundle": "^3.2.1",
@@ -23,7 +24,8 @@
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
-    "@pushrocks/smartdelay": "^2.0.9"
+    "@pushrocks/smartdelay": "^2.0.9",
+    "@pushrocks/smartenv": "^4.0.10"
   },
   "files": [
     "ts/**/*",

@@ -6,11 +6,10 @@ import * as plugins from './webrequest.plugins';
 export class WebRequest {
   private static polyfillsLoaded = false;
   public static loadNeededPolyfills() {
-    if (!this.polyfillsLoaded) {
+    const smartenv = new plugins.smartenv.Smartenv();
+    if (!smartenv.isBrowser && !this.polyfillsLoaded) {
       this.polyfillsLoaded = true;
-      // tslint:disable-next-line: no-eval
-      const loadFetchPolyfill = eval(`globalThis.fetch = require('node-fetch')`);
-      loadFetchPolyfill();
+      globalThis.fetch = smartenv.getSafeNodeModule('node-fetch');
     }
   }
 
