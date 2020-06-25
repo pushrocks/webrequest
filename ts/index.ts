@@ -4,6 +4,20 @@ import * as plugins from './webrequest.plugins';
  * web request
  */
 export class WebRequest {
+  private static polyfillsLoaded = false;
+  public static loadNeededPolyfills() {
+    if (!this.polyfillsLoaded) {
+      this.polyfillsLoaded = true;
+      // tslint:disable-next-line: no-eval
+      const loadFetchPolyfill = eval(`globalThis.fetch = require('node-fetch')`);
+      loadFetchPolyfill();
+    }
+  }
+
+  constructor() {
+    WebRequest.loadNeededPolyfills();
+  }
+
   public async getJson(urlArg: string | string[]) {
     const response: Response = await this.request(urlArg, {
       method: 'GET'

@@ -11,7 +11,13 @@
           },
           "gitzone": {
             "type": "object",
-            "description": "settings for gitzone"
+            "description": "settings for gitzone",
+            "properties": {
+              "projectType": {
+                "type": "string",
+                "enum": ["website", "element", "service", "npm"]
+              }
+            }
           }
         }
       }

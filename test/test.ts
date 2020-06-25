@@ -1,15 +1,5 @@
 import { expect, tap } from '@pushrocks/tapbundle';
 import * as webrequest from '../ts/index';
-import * as fetch from 'node-fetch';
-
-declare global {
-  namespace NodeJS {
-    interface Global {
-      fetch: any;
-    }
-  }
-}
-global.fetch = fetch;
 
 // test dependencies
 import * as smartexpress from '@pushrocks/smartexpress';
@@ -63,7 +53,7 @@ tap.test('first test', async tools => {
   const response2 = await new webrequest.WebRequest().getJson('http://localhost:2345/apiroute3');
 
   console.log(response);
-  console.log(response2)
+  console.log(response2);
 
   expect(response)
     .property('hithere')

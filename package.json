@@ -3,8 +3,8 @@
   "version": "2.0.6",
   "private": false,
   "description": "securely request from browsers",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist_ts/index.js",
+  "typings": "dist_ts/index.d.ts",
   "author": "Lossless GmbH",
   "license": "MIT",
   "scripts": {
@@ -13,25 +13,26 @@
     "format": "(gitzone format)"
   },
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.1.17",
-    "@gitzone/tstest": "^1.0.24",
-    "@pushrocks/smartexpress": "^3.0.40",
-    "@pushrocks/tapbundle": "^3.0.13",
-    "@types/node": "^12.7.8",
+    "@gitzone/tsbuild": "^2.1.24",
+    "@gitzone/tstest": "^1.0.33",
+    "@pushrocks/smartexpress": "^3.0.72",
+    "@pushrocks/tapbundle": "^3.2.1",
+    "@types/node": "^14.0.14",
     "node-fetch": "^2.6.0",
-    "tslint": "^5.20.0",
+    "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
-    "@pushrocks/smartdelay": "^2.0.3"
+    "@pushrocks/smartdelay": "^2.0.9"
   },
   "files": [
-    "ts/*",
-    "ts_web/*",
-    "dist/*",
-    "dist_web/*",
-    "dist_ts_web/*",
-    "assets/*",
+    "ts/**/*",
+    "ts_web/**/*",
+    "dist/**/*",
+    "dist_*/**/*",
+    "dist_ts/**/*",
+    "dist_ts_web/**/*",
+    "assets/**/*",
     "cli.js",
     "npmextra.json",
     "readme.md"
