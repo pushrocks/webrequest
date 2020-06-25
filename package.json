@@ -19,13 +19,13 @@
     "@pushrocks/smartexpress": "^3.0.72",
     "@pushrocks/tapbundle": "^3.2.1",
     "@types/node": "^14.0.14",
-    "node-fetch": "^2.6.0",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
     "@pushrocks/smartdelay": "^2.0.9",
-    "@pushrocks/smartenv": "^4.0.10"
+    "@pushrocks/smartenv": "^4.0.10",
+    "node-fetch": "^2.6.0"
   },
   "files": [
     "ts/**/*",
