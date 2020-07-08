@@ -122,7 +122,6 @@ export class WebRequest {
     };
 
     const finalResponse: Response = await doRequest(allUrls[usedUrlIndex]);
-    console.log(finalResponse);
     return finalResponse;
   }
 }

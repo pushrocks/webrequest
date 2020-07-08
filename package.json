@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.24",
-    "@gitzone/tsbundle": "^1.0.69",
-    "@gitzone/tstest": "^1.0.33",
-    "@pushrocks/smartexpress": "^3.0.72",
-    "@pushrocks/tapbundle": "^3.2.1",
-    "@types/node": "^14.0.14",
+    "@gitzone/tsbundle": "^1.0.72",
+    "@gitzone/tstest": "^1.0.38",
+    "@pushrocks/smartexpress": "^3.0.73",
+    "@pushrocks/tapbundle": "^3.2.7",
+    "@types/node": "^14.0.19",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0"
   },
@@ -38,5 +38,8 @@
     "cli.js",
     "npmextra.json",
     "readme.md"
+  ],
+  "browserslist": [
+    "last 1 chrome versions"
   ]
 }
