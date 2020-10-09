@@ -25,6 +25,7 @@
   "dependencies": {
     "@pushrocks/smartdelay": "^2.0.9",
     "@pushrocks/smartenv": "^4.0.10",
+    "@pushrocks/smartjson": "^4.0.5",
     "node-fetch": "^2.6.0"
   },
   "files": [

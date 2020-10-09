@@ -21,7 +21,9 @@ export class WebRequest {
     const response: Response = await this.request(urlArg, {
       method: 'GET'
     });
-    return response.json();
+    const responseText = await response.text();
+    const responseResult = plugins.smartjson.parse(responseText);
+    return responseResult;
   }
 
   /**
@@ -29,10 +31,12 @@ export class WebRequest {
    */
   public async postJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
-      body: JSON.stringify(requestBody),
+      body: plugins.smartjson.stringify(requestBody),
       method: 'POST'
     });
-    return response.json();
+    const responseText = await response.text();
+    const responseResult = plugins.smartjson.parse(responseText);
+    return responseResult;
   }
 
   /**
@@ -40,10 +44,12 @@ export class WebRequest {
    */
   public async putJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
-      body: JSON.stringify(requestBody),
+      body: plugins.smartjson.stringify(requestBody),
       method: 'PUT'
     });
-    return response.json();
+    const responseText = await response.text();
+    const responseResult = plugins.smartjson.parse(responseText);
+    return responseResult;
   }
 
   /**
@@ -53,7 +59,9 @@ export class WebRequest {
     const response: Response = await this.request(urlArg, {
       method: 'GET'
     });
-    return response.json();
+    const responseText = await response.text();
+    const responseResult = plugins.smartjson.parse(responseText);
+    return responseResult;
   }
 
   /**
