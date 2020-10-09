@@ -10,7 +10,7 @@ tap.test('setup test server', async () => {
   testServer = new smartexpress.Server({
     cors: false,
     forceSsl: false,
-    port: 2345
+    port: 2345,
   });
 
   testServer.addRoute(
@@ -34,7 +34,7 @@ tap.test('setup test server', async () => {
     new smartexpress.Handler('GET', (req, res) => {
       res.status(200);
       res.send({
-        hithere: 'hi'
+        hithere: 'hi',
       });
     })
   );
@@ -42,12 +42,12 @@ tap.test('setup test server', async () => {
   await testServer.start();
 });
 
-tap.test('first test', async tools => {
+tap.test('first test', async (tools) => {
   const response = await new webrequest.WebRequest().getJson([
     'http://localhost:2345/apiroute1',
     'http://localhost:2345/apiroute2',
     'http://localhost:2345/apiroute4',
-    'http://localhost:2345/apiroute3'
+    'http://localhost:2345/apiroute3',
   ]);
 
   const response2 = await new webrequest.WebRequest().getJson('http://localhost:2345/apiroute3');
@@ -55,12 +55,8 @@ tap.test('first test', async tools => {
   console.log(response);
   console.log(response2);
 
-  expect(response)
-    .property('hithere')
-    .to.equal('hi');
-  expect(response2)
-    .property('hithere')
-    .to.equal('hi');
+  expect(response).property('hithere').to.equal('hi');
+  expect(response2).property('hithere').to.equal('hi');
 });
 
 tap.test('tear down server', async () => {

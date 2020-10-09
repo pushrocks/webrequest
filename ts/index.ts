@@ -19,7 +19,7 @@ export class WebRequest {
 
   public async getJson(urlArg: string | string[]) {
     const response: Response = await this.request(urlArg, {
-      method: 'GET'
+      method: 'GET',
     });
     const responseText = await response.text();
     const responseResult = plugins.smartjson.parse(responseText);
@@ -32,7 +32,7 @@ export class WebRequest {
   public async postJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
       body: plugins.smartjson.stringify(requestBody),
-      method: 'POST'
+      method: 'POST',
     });
     const responseText = await response.text();
     const responseResult = plugins.smartjson.parse(responseText);
@@ -45,7 +45,7 @@ export class WebRequest {
   public async putJson(urlArg: string, requestBody?: any) {
     const response: Response = await this.request(urlArg, {
       body: plugins.smartjson.stringify(requestBody),
-      method: 'PUT'
+      method: 'PUT',
     });
     const responseText = await response.text();
     const responseResult = plugins.smartjson.parse(responseText);
@@ -57,7 +57,7 @@ export class WebRequest {
    */
   public async deleteJson(urlArg: string) {
     const response: Response = await this.request(urlArg, {
-      method: 'GET'
+      method: 'GET',
     });
     const responseText = await response.text();
     const responseResult = plugins.smartjson.parse(responseText);
@@ -114,9 +114,9 @@ export class WebRequest {
       const response = await fetch(urlToUse, {
         method: optionsArg.method,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: optionsArg.body
+        body: optionsArg.body,
       });
       console.log(`${urlToUse} answers with status: ${response.status}`);
 
