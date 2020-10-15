@@ -52,8 +52,8 @@ tap.test('first test', async (tools) => {
 
   const response2 = await new webrequest.WebRequest().getJson('http://localhost:2345/apiroute3');
 
-  console.log(response);
-  console.log(response2);
+  console.log('response 1: ' + JSON.stringify(response));
+  console.log('response 2: ' + JSON.stringify(response2));
 
   expect(response).property('hithere').to.equal('hi');
   expect(response2).property('hithere').to.equal('hi');

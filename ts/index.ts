@@ -123,9 +123,11 @@ export class WebRequest {
       if (response.status >= 200 && response.status < 300) {
         return response;
       } else {
+        // lets perform a history check to determine failed urls
         await doHistoryCheck(response.status.toString());
-        // tslint:disable-next-line: no-return-await
-        return await doRequest(allUrls[usedUrlIndex]);
+        // lets fire the request
+        const result = await doRequest(allUrls[usedUrlIndex]);
+        return result;
       }
     };
 
